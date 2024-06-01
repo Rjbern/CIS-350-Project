@@ -31,6 +31,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int currentPage = 0;
+
   final List<String> daysOfWeek = [
     'Monday',
     'Tuesday',
@@ -42,13 +44,13 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   final Map<String, Map<String, String>> meals = {
-    'Monday': {'Breakfast': 'Eggs', 'Lunch': 'Sandwich', 'Dinner': 'Pizza'},
-    'Tuesday': {'Breakfast': 'Eggs', 'Lunch': 'Sandwich', 'Dinner': 'Pizza'},
-    'Wednesday': {'Breakfast': 'Eggs', 'Lunch': 'Sandwich', 'Dinner': 'Pizza'},
-    'Thursday': {'Breakfast': 'Eggs', 'Lunch': 'Sandwich', 'Dinner': 'Pizza'},
-    'Friday': {'Breakfast': 'Eggs', 'Lunch': 'Sandwich', 'Dinner': 'Pizza'},
-    'Saturday': {'Breakfast': 'Eggs', 'Lunch': 'Sandwich', 'Dinner': 'Pizza'},
-    'Sunday': {'Breakfast': 'Eggs', 'Lunch': 'Sandwich', 'Dinner': 'Pizza'},
+    'Monday': {'Meals': ''},
+    'Tuesday': {'Meals': ''},
+    'Wednesday': {'Meals': ''},
+    'Thursday': {'Meals': ''},
+    'Friday': {'Meals': ''},
+    'Saturday': {'Meals': ''},
+    'Sunday': {'Meals': ''},
   };
 
   void _addFoodItem(String day, String meal) {
@@ -61,14 +63,14 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text('Add food for $meal on $day'),
           content: TextField(
             controller: foodController,
-            decoration: InputDecoration(hintText: "Enter food item"),
+            decoration: const InputDecoration(hintText: "Enter food item"),
           ),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
@@ -77,7 +79,41 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
                 Navigator.of(context).pop();
               },
-              child: Text('Add'),
+              child: const Text('Add'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void _deleteFoodItem(String day, String meal) {
+    TextEditingController foodController = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Delete food for $meal on $day'),
+          content: TextField(
+            controller: foodController,
+            decoration: const InputDecoration(hintText: "Enter food item"),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                setState(() {
+                  meals[day]![meal] = foodController.text;
+                });
+                Navigator.of(context).pop();
+              },
+              child: const Text('Delete'),
             ),
           ],
         );
@@ -88,77 +124,81 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          title: const Center(
-            child: Text(
-              "Dinner Planner",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.bold),
-            ),
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: const Center(
+          child: Text(
+            "Dinner Planner",
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold),
           ),
         ),
-        body: Column(
-          children: [
-            TableCalendar(
-              firstDay: DateTime.utc(2024, 1, 1),
-              lastDay: DateTime.utc(2024, 12, 31),
-              focusedDay: DateTime.now(),
-              calendarFormat: CalendarFormat.week,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 18.0),
-                child: ListView.builder(
-                  itemCount: daysOfWeek.length,
-                  itemBuilder: (context, index) {
-                    String day = daysOfWeek[index];
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: ExpansionTile(
-                        title: Text(
-                          day,
-                          style: TextStyle(fontSize: 18.0),
-                        ),
-                        children: [
-                          ListTile(
-                            title: Text(
-                              "Breakfast",
-                              style: TextStyle(fontSize: 14.0),
-                            ),
-                            trailing: Text(meals[day]!['Breakfast'] ?? ''),
-                            onTap: () => _addFoodItem(day, 'Breakfast'),
-                          ),
-                          ListTile(
-                            title: Text(
-                              "Lunch",
-                              style: TextStyle(fontSize: 14.0),
-                            ),
-                            trailing: Text(meals[day]!['Lunch'] ?? ''),
-                            onTap: () => _addFoodItem(day, 'Lunch'),
-                          ),
-                          ListTile(
-                            title: Text(
-                              "Dinner",
-                              style: TextStyle(fontSize: 14.0),
-                            ),
-                            trailing: Text(meals[day]!['Dinner'] ?? ''),
-                            onTap: () => _addFoodItem(day, 'Dinner'),
-                          ),
-                          ElevatedButton(
-                            onPressed: () => _addFoodItem(day, 'Dinner'),
-                            child: Text('Add Food'),
-                          ),
-                        ],
+      ),
+      bottomNavigationBar: NavigationBar(
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.home), label: "Planner"),
+          NavigationDestination(icon: Icon(Icons.book), label: "Recipies"),
+          NavigationDestination(
+              icon: Icon(Icons.local_grocery_store_rounded),
+              label: "Groceries"),
+        ],
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPage = index;
+          });
+        },
+        selectedIndex: currentPage,
+      ),
+      body: Column(
+        children: [
+          TableCalendar(
+            firstDay: DateTime.utc(2024, 1, 1),
+            lastDay: DateTime.utc(2024, 12, 31),
+            focusedDay: DateTime.now(),
+            calendarFormat: CalendarFormat.week,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 18.0),
+              child: ListView.builder(
+                itemCount: daysOfWeek.length,
+                itemBuilder: (context, index) {
+                  String day = daysOfWeek[index];
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: ExpansionTile(
+                      title: Text(
+                        day,
+                        style: const TextStyle(fontSize: 18.0),
                       ),
-                    );
-                  },
-                ),
+                      children: [
+                        ListTile(
+                          title: const Text(
+                            "Meal",
+                            style: TextStyle(fontSize: 14.0),
+                          ),
+                          trailing: Text(meals[day]!['Meal'] ?? ''),
+                          onTap: () => _addFoodItem(day, 'Meal'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () => _addFoodItem(day, 'Meal'),
+                          child: const Text('Add Food'),
+                        ),
+                        ElevatedButton(
+                          onPressed: () => _deleteFoodItem(day, 'Meal'),
+                          child: const Text('Delete Food'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
-            )
-          ],
-        ));
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
