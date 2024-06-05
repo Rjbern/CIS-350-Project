@@ -10,6 +10,9 @@ class HomePage extends StatefulWidget {
 
 // Creats days of the week.
 class _HomePage extends State<HomePage> {
+  CalendarFormat _calendarFormat = CalendarFormat.week;
+  DateTime _focusedDay = DateTime.now();
+
   final List<String> daysOfWeek = [
     'Monday',
     'Tuesday',
@@ -101,6 +104,12 @@ class _HomePage extends State<HomePage> {
     );
   }
 
+  String _getCurrentWeekRange(DateTime date) {
+    final firstDayOfWeek = date.subtract(Duration(days: date.weekday - 1));
+    final lastDayOfWeek = date.add(Duration(days: DateTime.daysPerWeek - date.weekday));
+    return '${firstDayOfWeek.toLocal().year}:${firstDayOfWeek.toLocal().month}:${firstDayOfWeek.toLocal().day} - ${lastDayOfWeek.toLocal().year}:${lastDayOfWeek.toLocal().month}:${lastDayOfWeek.toLocal().day}';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -108,8 +117,15 @@ class _HomePage extends State<HomePage> {
         TableCalendar(
           firstDay: DateTime.utc(2024, 1, 1),
           lastDay: DateTime.utc(2024, 12, 31),
-          focusedDay: DateTime.now(),
-          calendarFormat: CalendarFormat.week,
+          focusedDay: _focusedDay,
+          calendarFormat: _calendarFormat,
+          onFormatChanged: (format) {
+            _calendarFormat = CalendarFormat.week;
+          },
+          onPageChanged: (focusedDay) {
+            _focusedDay = focusedDay;
+            setState(() {});
+          },
         ),
         Expanded(
           child: Padding(
@@ -154,7 +170,11 @@ class _HomePage extends State<HomePage> {
               },
             ),
           ),
-        )
+        ),
+        Text(
+        'Current Week: ${_getCurrentWeekRange(_focusedDay)}',
+        style: const TextStyle(fontSize: 16.0),
+        ),
       ],
     );
   }
