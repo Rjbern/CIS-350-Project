@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_testing1/recipe_template.dart';
+import 'package:project_testing1/recipe_adapter.dart';
 
 const int recipeCount = 1;
 
