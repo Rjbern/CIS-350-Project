@@ -14,23 +14,23 @@ class _HomePage extends State<HomePage> {
   DateTime _focusedDay = DateTime.now();
 
   final List<String> daysOfWeek = [
+    'Sunday',
     'Monday',
     'Tuesday',
     'Wednesday',
     'Thursday',
     'Friday',
     'Saturday',
-    'Sunday',
   ];
   // Sets the array for collecting the meals added.
   final Map<String, Map<String, List<String>>> meals = {
+    'Sunday': {'Meals': []},
     'Monday': {'Meals': []},
     'Tuesday': {'Meals': []},
     'Wednesday': {'Meals': []},
     'Thursday': {'Meals': []},
     'Friday': {'Meals': []},
     'Saturday': {'Meals': []},
-    'Sunday': {'Meals': []},
   };
 
   // Add food item depending on what day you have selected

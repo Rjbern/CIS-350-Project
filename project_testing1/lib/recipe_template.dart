@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:project_testing1/globals.dart';
 
 const int recipeCount = 1;
 
@@ -39,15 +39,7 @@ class RecipeBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Recipe recipe = Recipe('Spaghetti Carbonara', 15,20,[
-        'Spaghetti',
-        'Eggs',
-        'Pancetta',
-        'Parmesan Cheese',
-        'Black Pepper'
-      ],
-          '1. Boil spaghetti. 2. Cook pancetta. 3. Mix eggs and cheese. 4. Combine all.'
-    );
+    final Recipe recipe = starterRecipe;
 
     return ListView.builder(
       itemCount: recipeCount,
@@ -69,12 +61,12 @@ class RecipeBuilder extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
                   for (var ingredient in recipe.ingredients)
-                    Text('- $ingredient', style: TextStyle(fontSize: 12)),
+                    Text('- $ingredient', style: const TextStyle(fontSize: 12)),
                   const SizedBox(height: 20),
                   const Text('Instructions:',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  Text(recipe.instructions, style: TextStyle(fontSize: 12))
+                  Text(recipe.instructions, style: const TextStyle(fontSize: 12))
                 ],
               ),
             )

@@ -1,21 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:project_testing1/recipe_template.dart';
+import 'package:project_testing1/globals.dart';
 
 class GroceriesPage extends StatelessWidget {
   const GroceriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Recipe recipe = Recipe( 'Spaghetti Carbonara', 15, 20,
-    [
-        'Spaghetti',
-        'Eggs',
-        'Pancetta',
-        'Parmesan Cheese',
-        'Black Pepper'
-      ],
-      '1. Boil spaghetti. 2. Cook pancetta. 3. Mix eggs and cheese. 4. Combine all.'
-    );
+    Recipe recipe = starterRecipe;
+    
     return Scaffold(
         appBar: AppBar(
           title: const Text('Grocery List:'),

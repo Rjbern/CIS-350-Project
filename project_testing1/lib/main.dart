@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:project_testing1/groceries_page.dart';
 import 'package:project_testing1/home_page.dart';
+import 'package:project_testing1/recipe_adapter.dart';
 import 'package:project_testing1/recipe_page.dart';
+import 'package:project_testing1/recipe_template.dart';
+import 'package:project_testing1/globals.dart';
 
-void main() {
+void main() async {
+  // init storage
+  await Hive.initFlutter();
+  Hive.registerAdapter(HiveRecipeAdapter());
+
+  // Open Box
+  var box = await Hive.openBox<HiveRecipe>('recipeStorage');
+  box.put(starterRecipe.name, convertToHiveRecipe(starterRecipe));
+
   runApp(const MyApp());
 }
 
