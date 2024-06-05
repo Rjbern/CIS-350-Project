@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-
 const int recipeCount = 1;
 
 class Recipe {
@@ -11,13 +10,28 @@ class Recipe {
   List<String> ingredients;
   String instructions;
 
-  Recipe({
-    required this.name,
-    required this.prepTime,
-    required this.cookTime,
-    required this.ingredients,
-    required this.instructions,
-  });
+  Recipe(this.name, this.prepTime, this.cookTime, this.ingredients,
+      this.instructions);
+}
+
+class UserRecipeStorage {
+  final List<Recipe> _recipeList = [];
+
+  UserRecipeStorage(List<Recipe> recipes) {
+    _recipeList.addAll(recipes);
+  }
+
+  Recipe getRecipe(int index) {
+    return _recipeList[index];
+  }
+
+  void createRecipe(Recipe newRecipe) {
+    _recipeList.add(newRecipe);
+  }
+
+  void deleteRecipe(int index) {
+    _recipeList.removeAt(index);
+  }
 }
 
 class RecipeBuilder extends StatelessWidget {
@@ -25,19 +39,14 @@ class RecipeBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Recipe recipe = Recipe(
-      name: 'Spaghetti Carbonara',
-      prepTime: 15,
-      cookTime: 20,
-      ingredients: [
+    Recipe recipe = Recipe('Spaghetti Carbonara', 15,20,[
         'Spaghetti',
         'Eggs',
         'Pancetta',
         'Parmesan Cheese',
         'Black Pepper'
       ],
-      instructions:
-          '1. Boil spaghetti. 2. Cook pancetta. 3. Mix eggs and cheese. 4. Combine all.',
+          '1. Boil spaghetti. 2. Cook pancetta. 3. Mix eggs and cheese. 4. Combine all.'
     );
 
     return ListView.builder(
