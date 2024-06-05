@@ -20,11 +20,33 @@ class RecipePage extends StatelessWidget {
       ),
       body: const RecipeBuilder(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          debugPrint('Floating Action Button');
+        onPressed: () async {
+          // final newRecipe = await openRecipeCreation(context);
         },
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  //TODO: Need to make it actually return a Recipe storage class
+  Future<Recipe?> openRecipeCreation(context) => showDialog<Recipe>(
+    context: context, 
+    builder: (context) => AlertDialog(
+      title: const Text('Create Recipe'),
+      content: const TextField(decoration: InputDecoration(hintText: 'Name of Recipe')
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            submit(context);
+          },
+          child: const Text('Submit'),
+          ),
+      ],
+    ),
+  );
+
+  void submit(context) {
+    Navigator.of(context).pop();
   }
 }
