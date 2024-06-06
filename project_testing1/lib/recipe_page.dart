@@ -30,21 +30,21 @@ class RecipePage extends StatelessWidget {
 
   //TODO: Need to make it actually return a Recipe storage class
   Future<Recipe?> openRecipeCreation(context) => showDialog<Recipe>(
-    context: context, 
-    builder: (context) => AlertDialog(
-      title: const Text('Create Recipe'),
-      content: const TextField(decoration: InputDecoration(hintText: 'Name of Recipe')
-      ),
-      actions: [
-        TextButton(
-          onPressed: () {
-            submit(context);
-          },
-          child: const Text('Submit'),
-          ),
-      ],
-    ),
-  );
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Create Recipe'),
+          content: const TextField(
+              decoration: InputDecoration(hintText: 'Name of Recipe')),
+          actions: [
+            TextButton(
+              onPressed: () {
+                submit(context);
+              },
+              child: const Text('Submit'),
+            ),
+          ],
+        ),
+      );
 
   void submit(context) {
     Navigator.of(context).pop();
