@@ -25,41 +25,40 @@ class Recipe extends HiveObject {
       this.instructions);
 }
 
-const int recipeCount = 1;
-
 class RecipeBuilder extends StatelessWidget {
-  const RecipeBuilder({super.key});
+  RecipeBuilder({super.key});
+  final recipeBox = Hive.box<Recipe>(recipeStorageName);
 
   @override
   Widget build(BuildContext context) {
-    final Recipe recipe = starterRecipe;
-
+    Recipe currentRecipe;
     return ListView.builder(
-      itemCount: recipeCount,
+      itemCount: recipeBox.length,
       itemBuilder: (BuildContext context, int index) {
+        currentRecipe = recipeBox.getAt(index)!;
         return ExpansionTile(
-          title: Text('Recipe ${(index + 1)}: ${recipe.name}'),
+          title: Text('Recipe ${(index + 1)}: ${currentRecipe.name}'),
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Prep Time: ${recipe.prepTime} minutes',
+                  Text('Prep Time: ${currentRecipe.prepTime} minutes',
                       style: const TextStyle(fontSize: 18)),
-                  Text('Cook Time: ${recipe.cookTime} minutes',
+                  Text('Cook Time: ${currentRecipe.cookTime} minutes',
                       style: const TextStyle(fontSize: 18)),
                   const SizedBox(height: 10),
                   const Text('Ingredients:',
                       style:
                           TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
-                  for (var ingredient in recipe.ingredients)
+                  for (var ingredient in currentRecipe.ingredients)
                     Text('- $ingredient', style: const TextStyle(fontSize: 12)),
                   const SizedBox(height: 20),
                   const Text('Instructions:',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  Text(recipe.instructions, style: const TextStyle(fontSize: 12))
+                  Text(currentRecipe.instructions, style: const TextStyle(fontSize: 12))
                 ],
               ),
             )

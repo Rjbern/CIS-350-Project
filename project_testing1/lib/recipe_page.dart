@@ -20,7 +20,7 @@ class RecipePage extends StatelessWidget {
           ),
         ),
       ),
-      body: const RecipeBuilder(),
+      body: RecipeBuilder(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           _openRecipeCreation(context);
