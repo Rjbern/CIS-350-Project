@@ -5,8 +5,28 @@ import 'package:project_testing1/globals.dart';
 
 const int recipeCount = 1;
 
-class RecipePage extends StatelessWidget {
+class RecipePage extends StatefulWidget {
   const RecipePage({super.key});
+
+  @override
+  _RecipePageState createState() => _RecipePageState();
+}
+
+class _RecipePageState extends State<RecipePage> {
+  late Box<Recipe> recipeBox;
+
+
+  // add listerner to hive box.
+  // When chnages setState() is called allowing for refresh right away
+  // Not only when recipe page is recalled
+  @override
+  void initState() {
+    super.initState();
+    recipeBox = Hive.box<Recipe>(recipeStorageName);
+    recipeBox.listenable().addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

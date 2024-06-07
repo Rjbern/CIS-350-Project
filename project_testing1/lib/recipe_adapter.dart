@@ -25,9 +25,20 @@ class Recipe extends HiveObject {
       this.instructions);
 }
 
-class RecipeBuilder extends StatelessWidget {
+class RecipeBuilder extends StatefulWidget {
   RecipeBuilder({super.key});
+
+  @override
+  _RecipeBuilderState createState() => _RecipeBuilderState();
+}
+
+class _RecipeBuilderState extends State<RecipeBuilder> {
   final recipeBox = Hive.box<Recipe>(recipeStorageName);
+
+  void _deleteRecipe(int index) {
+    recipeBox.deleteAt(index);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +73,14 @@ class RecipeBuilder extends StatelessWidget {
                       style: const TextStyle(fontSize: 12))
                 ],
               ),
-            )
+            ),
+            // Delete Recipe Button
+            TextButton(
+              onPressed: () {
+                _deleteRecipe(index);
+              },
+              child: const Text('Delete Recipe'),
+            ),
           ],
         );
       },
