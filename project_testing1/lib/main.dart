@@ -11,8 +11,9 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(RecipeAdapter());
 
-  // Open Box
-  var box = await Hive.openBox<Recipe>('recipeStorage');
+  // Open Boxs
+  final recipeStorage = await Hive.openBox<Recipe>(recipeStorageName);
+  final plannedMealsStorage = await Hive.openBox<Recipe>(plannedMealStorageName);
 
   runApp(const MyApp());
 }
