@@ -1,6 +1,9 @@
-
-// Unfinished
+// This creats new page to submit new recipe
+// Adds text feilds for all parts of recipe
+// Takes and submits them to the list 
+// Creats button
 import 'package:flutter/material.dart';
+import 'package:project_testing1/recipe_storage_map.dart';
 
 void _openRecipeCreation(String name, String preptime, String cooktime,
     String ingredients, String intructions) {
@@ -14,33 +17,59 @@ void _openRecipeCreation(String name, String preptime, String cooktime,
       context: context,
       builder: (context) {
         return AlertDialog(
-            title: Text('Enter Recipe:'),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
+          title: const Text('Enter Recipe:'),
+          content: Column(mainAxisSize: MainAxisSize.min, children: [
+            TextField(
               controller: nameController,
-              decoration: InputDecoration(hintText: "Enter name"),
+              decoration: const InputDecoration(hintText: "Enter name"),
             ),
             TextField(
               controller: preptimeController,
-              decoration: InputDecoration(hintText: "Enter preptime"),
+              decoration: const InputDecoration(hintText: "Enter preptime"),
             ),
             TextField(
               controller: cooktimeController,
-              decoration: InputDecoration(hintText: "Enter cooktime"),
+              decoration: const InputDecoration(hintText: "Enter cooktime"),
             ),
             TextField(
               controller: ingredientsController,
-              decoration: InputDecoration(hintText: "Enter ingredients"),
+              decoration: const InputDecoration(hintText: "Enter ingredients"),
             ),
             TextField(
               controller: intructionsController,
-              decoration: InputDecoration(hintText: "Enter intructions"),
+              decoration: const InputDecoration(hintText: "Enter intructions"),
             ),
-              ],
+          ]),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('Cancel'),
             ),
-            );
-            
+            TextButton(
+              onPressed: () {
+                // Handle sumbitted data
+                String newName = nameController.text;
+                String newPrepTime = preptimeController.text;
+                String newCookTime = cooktimeController.text;
+                String newIngredients = ingredientsController.text;
+                String newIntructions = intructionsController.text;
+
+                // Add to recipe list
+                recipes['Recipies']?.add({
+                  'Name': newName,
+                  'PrepTime': newPrepTime,
+                  'CookTime': newCookTime,
+                  'Ingredients': newIngredients,
+                  'Intructions': newIntructions,
+                });
+                // Close
+                Navigator.of(context).pop();
+              },
+              child: const Text('Add'),
+            )
+          ],
+        );
       });
 }
