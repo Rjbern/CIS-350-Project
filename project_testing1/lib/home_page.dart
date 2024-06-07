@@ -106,7 +106,8 @@ class _HomePage extends State<HomePage> {
 
   String _getCurrentWeekRange(DateTime date) {
     final firstDayOfWeek = date.subtract(Duration(days: date.weekday - 1));
-    final lastDayOfWeek = date.add(Duration(days: DateTime.daysPerWeek - date.weekday));
+    final lastDayOfWeek =
+        date.add(Duration(days: DateTime.daysPerWeek - date.weekday));
     return '${firstDayOfWeek.toLocal().year}:${firstDayOfWeek.toLocal().month}:${firstDayOfWeek.toLocal().day} - ${lastDayOfWeek.toLocal().year}:${lastDayOfWeek.toLocal().month}:${lastDayOfWeek.toLocal().day}';
   }
 
@@ -172,8 +173,8 @@ class _HomePage extends State<HomePage> {
           ),
         ),
         Text(
-        'Current Week: ${_getCurrentWeekRange(_focusedDay)}',
-        style: const TextStyle(fontSize: 16.0),
+          'Current Week: ${_getCurrentWeekRange(_focusedDay)}',
+          style: const TextStyle(fontSize: 16.0),
         ),
       ],
     );

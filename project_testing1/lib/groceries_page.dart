@@ -8,7 +8,7 @@ class GroceriesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Recipe recipe = starterRecipe;
-    
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('Grocery List:'),
@@ -17,7 +17,7 @@ class GroceriesPage extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [ 
+              children: [
                 const Text('Ingredients:',
                     style:
                         TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),

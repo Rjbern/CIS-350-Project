@@ -17,7 +17,7 @@ class Recipe extends HiveObject {
 
   @HiveField(3)
   List<String> ingredients;
-  
+
   @HiveField(4)
   String instructions;
 
@@ -58,7 +58,8 @@ class RecipeBuilder extends StatelessWidget {
                   const Text('Instructions:',
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                  Text(currentRecipe.instructions, style: const TextStyle(fontSize: 12))
+                  Text(currentRecipe.instructions,
+                      style: const TextStyle(fontSize: 12))
                 ],
               ),
             )
