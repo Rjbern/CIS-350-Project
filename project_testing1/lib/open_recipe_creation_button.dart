@@ -5,8 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_testing1/recipe_storage_map.dart';
 
-void _openRecipeCreation(String name, String preptime, String cooktime,
-    String ingredients, String intructions) {
+void _openRecipeCreation(BuildContext context) {
   TextEditingController nameController = TextEditingController();
   TextEditingController preptimeController = TextEditingController();
   TextEditingController cooktimeController = TextEditingController();
