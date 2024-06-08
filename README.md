@@ -2,7 +2,7 @@
 
 ## Dinner Planner App
 
-### Made by
+## Made by
 
 ---
 
@@ -10,9 +10,19 @@
 
 ### Rylan Bernhardt
 
+---
+
+## Important Links
+
+ ----
+ 
 ### JIRA
 
-https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9
+<https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9>
+
+### GITHUB
+
+<https://github.com/Rjbern/CIS-350-Project>
 
 ---
 
@@ -26,9 +36,57 @@ Flutter allows for the development of mobile applications that can be used acros
 
 ## 3. Architectural Design
 
+"**Dinner Planner**" was designed around a singluar client side interface.  This means that all storage of data is housed on device. A risk analysis was done in order to decide to go with the architecture shown in Figure 1.
+
+<p align="center">
+  <img src="readmeFigures/architectureDesign.PNG" width="300" title="architecture">
+  <br>
+  Figure 1: Client and Storage Architecture
+</p>
+
+This architecture design allows a singular user to keep all their data stored on device so no internet connection is needed to run the app.  Additionally, there is no chance that a sever disruption could hinder the user using the app.  Two downsides to this design that were considered were multi-device support and having a backup if the users device were to get damaged.  For the short timeline of this project the simplicity of not having a server made the most sense because the two main issues were more long term itteration changes.
+
 ### 3.1 Class Diagram
 
-### 3.2 Sequence Diagram
+<p align="center">
+  <img src="readmeFigures/classDiagram.PNG" width="700" title="useCase">
+  <br>
+  Figure 2: Class Diagram
+</p>
+
+### 3.2 Use Case Diagram
+
+Major uses of the "**Diner Planner**" were designed about the most crucial elements users would need to interact with.  The use case diagram can be seen in Figure 3.
+
+<p align="center">
+  <img src="readmeFigures/useCase.PNG" width="300" title="useCase">
+  <br>
+  Figure 3: Use Case Diagram
+</p>
+
+These interactions were decided upon by asking a sample group of people what they would like to see from this type of app.  The most common things said amongst this group is being able to create their own recipe, having a calendar to see what recipe is when, and having an easy way to get a grocery list for any week so shopping is easier.  These are reflected by our choices in designing Figure 2.
+
+### 3.3 Sequence Diagram
+
+The three major interactions come from creating the recipes, linking those recipes to the date the user wants to make that recipe, and gathering the grocieries for a given week.  Figures 4 through 6 show the sequence diagrams for these interactions.
+
+<p align="center">
+  <img src="readmeFigures/createRecipeSequence.PNG" width="300" title="useCase">
+  <br>
+  Figure 4: Sequence Diagram for Creating Recipes
+</p>
+
+<p align="center">
+  <img src="readmeFigures/linkRecipeSequence.PNG" width="300" title="useCase">
+  <br>
+  Figure 5: Sequence Diagram for Creating Recipes
+</p>
+
+<p align="center">
+  <img src="readmeFigures/getGrocerySequence.PNG" width="300" title="useCase">
+  <br>
+  Figure 6: Sequence Diagram for Creating Recipes
+</p>
 
 ## 4. User Guide / Implementation
 
