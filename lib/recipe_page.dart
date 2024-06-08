@@ -9,10 +9,10 @@ class RecipePage extends StatefulWidget {
   const RecipePage({super.key});
 
   @override
-  _RecipePageState createState() => _RecipePageState();
+  RecipePageState createState() => RecipePageState();
 }
 
-class _RecipePageState extends State<RecipePage> {
+class RecipePageState extends State<RecipePage> {
   late Box<Recipe> recipeBox;
 
 
@@ -40,7 +40,7 @@ class _RecipePageState extends State<RecipePage> {
           ),
         ),
       ),
-      body: RecipeBuilder(),
+      body: const RecipeBuilder(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           _openRecipeCreation(context);

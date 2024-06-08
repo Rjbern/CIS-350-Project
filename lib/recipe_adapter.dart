@@ -26,13 +26,13 @@ class Recipe extends HiveObject {
 }
 
 class RecipeBuilder extends StatefulWidget {
-  RecipeBuilder({super.key});
+  const RecipeBuilder({super.key});
 
   @override
-  _RecipeBuilderState createState() => _RecipeBuilderState();
+  RecipeBuilderState createState() => RecipeBuilderState();
 }
 
-class _RecipeBuilderState extends State<RecipeBuilder> {
+class RecipeBuilderState extends State<RecipeBuilder> {
   final recipeBox = Hive.box<Recipe>(recipeStorageName);
 
   void _deleteRecipe(int index) {
