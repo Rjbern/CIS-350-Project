@@ -3,8 +3,6 @@ import 'package:project_testing1/recipe_adapter.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:project_testing1/globals.dart';
 
-const int recipeCount = 1;
-
 class RecipePage extends StatefulWidget {
   const RecipePage({super.key});
 
