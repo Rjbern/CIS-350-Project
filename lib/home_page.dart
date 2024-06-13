@@ -92,13 +92,18 @@ class _HomePage extends State<HomePage> {
                   // 1 Indexed in view so minus 1 from their number to get 0 indexed
                   int index = int.parse(foodController.text) - 1;
                   Recipe newRecipe = recipeBox.getAt(index)!;
-                  Recipe newInstance = Recipe(newRecipe.name, newRecipe.prepTime,
-                    newRecipe.cookTime, newRecipe.ingredients, newRecipe.instructions);
+                  Recipe newInstance = Recipe(
+                      newRecipe.name,
+                      newRecipe.prepTime,
+                      newRecipe.cookTime,
+                      newRecipe.ingredients,
+                      newRecipe.instructions);
 
                   await mealBox.put(_getDateOfWeekday(weekDay), newInstance);
                   Navigator.of(context).pop();
                 } catch (ex) {
-                  errorMessage(context, "Make sure to only input the recipe number");
+                  errorMessage(
+                      context, "Make sure to only input the recipe number");
                 }
               },
               child: const Text('Add'),
@@ -115,7 +120,8 @@ class _HomePage extends State<HomePage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text('Are you sure you want to delete the meal on ${_getDateOfWeekday(weekDay)}'),
+          title: Text(
+              'Are you sure you want to delete the meal on ${_getDateOfWeekday(weekDay)}'),
           actions: [
             TextButton(
               onPressed: () {
@@ -164,14 +170,12 @@ class _HomePage extends State<HomePage> {
                   style: const TextStyle(fontSize: 18)),
               const SizedBox(height: 10),
               const Text('Ingredients:',
-                  style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
               for (var ingredient in currentRecipe.ingredients)
                 Text('- $ingredient', style: const TextStyle(fontSize: 12)),
               const SizedBox(height: 20),
               const Text('Instructions:',
-                  style:
-                      TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               Text(currentRecipe.instructions,
                   style: const TextStyle(fontSize: 12))
             ],
@@ -208,11 +212,11 @@ class _HomePage extends State<HomePage> {
                 Recipe? currRecipe;
                 try {
                   currRecipe = mealBox.get(_getDateOfWeekday(index));
-                } catch(er) {
+                } catch (er) {
                   currRecipe = null;
                   print(er.toString());
                 }
-                
+
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),
                   child: Column(
@@ -228,7 +232,7 @@ class _HomePage extends State<HomePage> {
                       _showRecipe(currRecipe) ?? const Text(""),
                       // creates the button that can add meal and assign method add.
                       Center(
-                        child : Padding(
+                        child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Row(
                             children: [

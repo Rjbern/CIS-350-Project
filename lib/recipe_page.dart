@@ -13,7 +13,6 @@ class RecipePage extends StatefulWidget {
 class RecipePageState extends State<RecipePage> {
   late Box<Recipe> recipeBox;
 
-
   // add listerner to hive box.
   // When chnages setState() is called allowing for refresh right away
   // Not only when recipe page is recalled
@@ -38,7 +37,7 @@ class RecipePageState extends State<RecipePage> {
           ),
         ),
       ),
-      body: const RecipeBuilder(),
+      body: RecipeBuilder(recipeBox: recipeBox),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           _openRecipeCreation(context);
