@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
-import 'package:project_testing1/globals.dart';
 
 part 'recipe_adapter.g.dart';
 

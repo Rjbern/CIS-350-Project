@@ -3,7 +3,7 @@ import 'package:project_testing1/recipe_adapter.dart';
 //Define Global Variables here
 String recipeStorageName = 'recipeStorage';
 String plannedMealStorageName = 'plannedMealsStorage';
-List<String> plannedIngredientsName = [];
+List<String> plannedIngredients = [];
 
 Recipe starterRecipe = Recipe(
     'Spaghetti Carbonara',

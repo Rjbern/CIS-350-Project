@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:project_testing1/globals.dart';
@@ -26,17 +28,6 @@ class _HomePage extends State<HomePage> {
     'Friday',
     'Saturday',
   ];
-
-  // Sets the array for collecting the meals added.
-  final Map<String, Map<String, List<String>>> meals = {
-    'Sunday': {'Meals': []},
-    'Monday': {'Meals': []},
-    'Tuesday': {'Meals': []},
-    'Wednesday': {'Meals': []},
-    'Thursday': {'Meals': []},
-    'Friday': {'Meals': []},
-    'Saturday': {'Meals': []},
-  };
 
   // add listerner to hive box.
   // When chnages setState() is called allowing for refresh right away
@@ -100,9 +91,7 @@ class _HomePage extends State<HomePage> {
                       newRecipe.instructions);
 
                   // makes sure it add the ingredients to th elist correctly so they can
-                  setState(() {
-                    plannedIngredientsName.addAll(newRecipe.ingredients);
-                  });
+                  setState(() {});
 
                   await mealBox.put(_getDateOfWeekday(weekDay), newInstance);
                   Navigator.of(context).pop();
@@ -140,12 +129,7 @@ class _HomePage extends State<HomePage> {
                 Recipe? recipeToDelete = mealBox.get(dateKey);
                 // Checks if recipe to delete if so then deletes ingredient from plannedIngredientsname List
                 if (recipeToDelete != null) {
-                  setState(() {
-                    for (var ingredient in recipeToDelete.ingredients) {
-                      plannedIngredientsName.remove(ingredient);
-                    }
-                  });
-
+                  setState(() {});
                   await mealBox.delete(dateKey);
                 }
 
@@ -167,6 +151,17 @@ class _HomePage extends State<HomePage> {
         .subtract(Duration(days: _focusedDay.weekday))
         .add(Duration(days: weekDay));
     return '${targetDate.month}/${targetDate.day}/${targetDate.year}';
+  }
+
+  void _gatherGroceryList() {
+    plannedIngredients.clear();
+    for (var i = 0; i <= 6; i++) {
+      Recipe? meal = mealBox.get(_getDateOfWeekday(i));
+
+      if (meal != null) {
+        plannedIngredients.addAll(meal.ingredients);
+      }
+    }
   }
 
   Widget? _showRecipe(Recipe? currentRecipe) {
@@ -219,6 +214,14 @@ class _HomePage extends State<HomePage> {
             setState(() {});
           },
         ),
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              _gatherGroceryList();
+            },
+            child: const Text('Get Current Weeks Groceries'),
+          ),
+        ),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 18.0),
@@ -231,7 +234,6 @@ class _HomePage extends State<HomePage> {
                   currRecipe = mealBox.get(_getDateOfWeekday(index));
                 } catch (er) {
                   currRecipe = null;
-                  print(er.toString());
                 }
 
                 return Padding(

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:project_testing1/recipe_adapter.dart';
 import 'package:project_testing1/globals.dart';
 
 class GroceriesPage extends StatefulWidget {
   const GroceriesPage({super.key});
 
   @override
-  _GroceriesPageState createState() => _GroceriesPageState();
+  GroceriesPageState createState() => GroceriesPageState();
 }
 
-class _GroceriesPageState extends State<GroceriesPage> {
+class GroceriesPageState extends State<GroceriesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,10 +24,10 @@ class _GroceriesPageState extends State<GroceriesPage> {
               'Ingredients:',
               style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
             ),
-            if (plannedIngredientsName.isEmpty)
+            if (plannedIngredients.isEmpty)
               const Text('No ingredients planned',
                   style: TextStyle(fontSize: 12)),
-            for (var i in plannedIngredientsName)
+            for (var i in plannedIngredients)
               Text('- $i', style: const TextStyle(fontSize: 12)),
           ],
         ),
