@@ -46,6 +46,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int currentPage = 0;
+  DateTime focusedDay = DateTime.now();
   List<Widget> pages = const [
     HomePage(),
     RecipePage(),

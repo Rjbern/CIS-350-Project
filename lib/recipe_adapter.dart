@@ -1,6 +1,5 @@
 import 'package:hive/hive.dart';
 import 'package:flutter/material.dart';
-import 'package:project_testing1/globals.dart';
 
 part 'recipe_adapter.g.dart';
 
@@ -26,17 +25,17 @@ class Recipe extends HiveObject {
 }
 
 class RecipeBuilder extends StatefulWidget {
-  const RecipeBuilder({super.key});
+  final Box<Recipe> recipeBox;
+
+  const RecipeBuilder({super.key, required this.recipeBox});
 
   @override
   RecipeBuilderState createState() => RecipeBuilderState();
 }
 
 class RecipeBuilderState extends State<RecipeBuilder> {
-  final recipeBox = Hive.box<Recipe>(recipeStorageName);
-
   void _deleteRecipe(int index) {
-    recipeBox.deleteAt(index);
+    widget.recipeBox.deleteAt(index);
     setState(() {});
   }
 
@@ -44,9 +43,9 @@ class RecipeBuilderState extends State<RecipeBuilder> {
   Widget build(BuildContext context) {
     Recipe currentRecipe;
     return ListView.builder(
-      itemCount: recipeBox.length,
+      itemCount: widget.recipeBox.length,
       itemBuilder: (BuildContext context, int index) {
-        currentRecipe = recipeBox.getAt(index)!;
+        currentRecipe = widget.recipeBox.getAt(index)!;
         return ExpansionTile(
           title: Text('Recipe ${(index + 1)}: ${currentRecipe.name}'),
           children: [

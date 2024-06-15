@@ -3,8 +3,6 @@ import 'package:project_testing1/recipe_adapter.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:project_testing1/globals.dart';
 
-const int recipeCount = 1;
-
 class RecipePage extends StatefulWidget {
   const RecipePage({super.key});
 
@@ -14,7 +12,6 @@ class RecipePage extends StatefulWidget {
 
 class RecipePageState extends State<RecipePage> {
   late Box<Recipe> recipeBox;
-
 
   // add listerner to hive box.
   // When chnages setState() is called allowing for refresh right away
@@ -40,7 +37,7 @@ class RecipePageState extends State<RecipePage> {
           ),
         ),
       ),
-      body: const RecipeBuilder(),
+      body: RecipeBuilder(recipeBox: recipeBox),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           _openRecipeCreation(context);
