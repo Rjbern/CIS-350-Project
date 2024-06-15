@@ -39,7 +39,7 @@ Flutter allows for the development of mobile applications that can be used acros
 "**Dinner Planner**" was designed around a singluar client side interface.  This means that all storage of data is housed on device. A risk analysis was done in order to decide to go with the architecture shown in Figure 1.
 
 <p align="center">
-  <img src="./readmeFigures/architectureDesign.PNG" width="300" title="architecture">
+  <img src="./readmeFigures/architectureDesign.png" width="300" title="architecture">
   <br>
   Figure 1: Client and Storage Architecture
 </p>
