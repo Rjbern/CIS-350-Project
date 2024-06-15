@@ -39,7 +39,7 @@ Flutter allows for the development of mobile applications that can be used acros
 "**Dinner Planner**" was designed around a singluar client side interface.  This means that all storage of data is housed on device. A risk analysis was done in order to decide to go with the architecture shown in Figure 1.
 
 <p align="center">
-  <img src="readmeFigures/architectureDesign.PNG" width="300" title="architecture">
+  <img src="./readmeFigures/architectureDesign.PNG" width="300" title="architecture">
   <br>
   Figure 1: Client and Storage Architecture
 </p>
@@ -49,7 +49,7 @@ This architecture design allows a singular user to keep all their data stored on
 ### 3.1 Class Diagram
 
 <p align="center">
-  <img src="readmeFigures/classDiagram.PNG" width="700" title="useCase">
+  <img src="./readmeFigures/classDiagram.PNG" width="700" title="classDiagram">
   <br>
   Figure 2: Class Diagram
 </p>
@@ -59,7 +59,7 @@ This architecture design allows a singular user to keep all their data stored on
 Major uses of the "**Diner Planner**" were designed about the most crucial elements users would need to interact with.  The use case diagram can be seen in Figure 3.
 
 <p align="center">
-  <img src="readmeFigures/useCase.PNG" width="300" title="useCase">
+  <img src="./readmeFigures/useCase.PNG" width="300" title="useCase">
   <br>
   Figure 3: Use Case Diagram
 </p>
@@ -71,19 +71,19 @@ These interactions were decided upon by asking a sample group of people what the
 The three major interactions come from creating the recipes, linking those recipes to the date the user wants to make that recipe, and gathering the grocieries for a given week.  Figures 4 through 6 show the sequence diagrams for these interactions.
 
 <p align="center">
-  <img src="readmeFigures/createRecipeSequence.PNG" width="300" title="useCase">
+  <img src="./readmeFigures/createRecipeSequence.PNG" width="300" title="createRecipe">
   <br>
   Figure 4: Sequence Diagram for Creating Recipes
 </p>
 
 <p align="center">
-  <img src="readmeFigures/linkRecipeSequence.PNG" width="300" title="useCase">
+  <img src="./readmeFigures/linkRecipeSequence.PNG" width="300" title="linkRecipe">
   <br>
   Figure 5: Sequence Diagram for Creating Recipes
 </p>
 
 <p align="center">
-  <img src="readmeFigures/getGrocerySequence.PNG" width="300" title="useCase">
+  <img src="readmeFigures/getGrocerySequence.PNG" width="300" title="grocerySequence">
   <br>
   Figure 6: Sequence Diagram for Creating Recipes
 </p>
