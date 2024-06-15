@@ -99,6 +99,11 @@ class _HomePage extends State<HomePage> {
                       newRecipe.ingredients,
                       newRecipe.instructions);
 
+                  // makes sure it add the ingredients to th elist correctly so they can
+                  setState(() {
+                    plannedIngredientsName.addAll(newRecipe.ingredients);
+                  });
+
                   await mealBox.put(_getDateOfWeekday(weekDay), newInstance);
                   Navigator.of(context).pop();
                 } catch (ex) {
@@ -131,7 +136,19 @@ class _HomePage extends State<HomePage> {
             ),
             TextButton(
               onPressed: () async {
-                await mealBox.delete(_getDateOfWeekday(weekDay));
+                String dateKey = _getDateOfWeekday(weekDay);
+                Recipe? recipeToDelete = mealBox.get(dateKey);
+                // Checks if recipe to delete if so then deletes ingredient from plannedIngredientsname List
+                if (recipeToDelete != null) {
+                  setState(() {
+                    for (var ingredient in recipeToDelete.ingredients) {
+                      plannedIngredientsName.remove(ingredient);
+                    }
+                  });
+
+                  await mealBox.delete(dateKey);
+                }
+
                 Navigator.of(context).pop();
               },
               child: const Text('Delete'),
