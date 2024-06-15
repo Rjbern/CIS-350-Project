@@ -11,4 +11,10 @@ Recipe starterRecipe = Recipe(
     20,
     ['Spaghetti', 'Eggs', 'Pancetta', 'Parmesan Cheese', 'Black Pepper'],
     '1. Boil spaghetti. 2. Cook pancetta. 3. Mix eggs and cheese. 4. Combine all.');
-// Define Global Functions here
+
+Recipe testerRecipe = Recipe(
+    "Tacos",
+    5,
+    15,
+    ['Burger', 'Taco Seasoning', 'Milk'],
+    'Brown buger, simmer with taco seasoning and milk. Serve as enjoyed.');

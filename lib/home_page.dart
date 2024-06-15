@@ -10,11 +10,11 @@ class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePage();
+  State<HomePage> createState() => HomePageState();
 }
 
 // Creats days of the week.
-class _HomePage extends State<HomePage> {
+class HomePageState extends State<HomePage> {
   CalendarFormat _calendarFormat = CalendarFormat.week;
   DateTime _focusedDay = DateTime.now();
   late Box<Recipe> recipeBox, mealBox;
@@ -108,6 +108,11 @@ class _HomePage extends State<HomePage> {
     );
   }
 
+  @visibleForTesting
+  void addFoodItem(int weekDay) {
+    _addFoodItem(weekDay);
+  }
+
   // deletes food from the day selected if it is there
   void _deleteFoodItem(int weekDay) {
     showDialog(
@@ -143,6 +148,11 @@ class _HomePage extends State<HomePage> {
     );
   }
 
+  @visibleForTesting
+  void deleteFoodItem(int weekDay) {
+    _deleteFoodItem(weekDay);
+  }
+
   String _getDateOfWeekday(int weekDay) {
     /// Finds the date of the weekday based on the week range of [_focusedDay]
     ///
@@ -151,6 +161,11 @@ class _HomePage extends State<HomePage> {
         .subtract(Duration(days: _focusedDay.weekday))
         .add(Duration(days: weekDay));
     return '${targetDate.month}/${targetDate.day}/${targetDate.year}';
+  }
+
+  @visibleForTesting
+  String getDateOfWeekday(int weekDay) {
+    return _getDateOfWeekday(weekDay);
   }
 
   void _gatherGroceryList() {
@@ -162,6 +177,11 @@ class _HomePage extends State<HomePage> {
         plannedIngredients.addAll(meal.ingredients);
       }
     }
+  }
+
+  @visibleForTesting
+  void gatherGroceryList() {
+    _gatherGroceryList();
   }
 
   Widget? _showRecipe(Recipe? currentRecipe) {
