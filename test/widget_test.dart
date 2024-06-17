@@ -53,6 +53,39 @@ void main() async {
     expect(find.text('Enter Recipe:'), findsOneWidget);
   });
 
+  testWidgets('Grocery Page Trials', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    const app = MyApp();
+    await tester.pumpWidget(app);
+
+    //Make sure the recipe page shows up right
+    var findNavigation = find.byType(NavigationDestination);
+    expect(findNavigation, findsExactly(3));
+
+    await tester.tap(findNavigation.at(2));
+    await tester.pump();
+
+    // Confirms that it is on the new page 
+    expect(find.text('Grocery List:'), findsOneWidget);
+    expect(find.text('No ingredients planned'), findsOneWidget);
+
+    // Go to home screen because this is the only place groceries are added
+    await tester.tap(findNavigation.at(0));
+    await tester.pump();
+
+    // Add Recipes to list
+    plannedIngredients.addAll(testerRecipe.ingredients);
+
+    // Go back to the grocery page to look for ingredients
+    await tester.tap(findNavigation.at(2));
+    await tester.pump();
+
+    // Confirms that the creation box popped up
+    for (var ingredient in testerRecipe.ingredients) {
+      expect(find.textContaining(ingredient), findsOneWidget); 
+    }
+  });
+
   test('Getting Day of the Week Unit Test', () {
     final home = HomePageState();
 
