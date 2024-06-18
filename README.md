@@ -14,15 +14,15 @@
 
 ## Important Links
 
- ----
- 
+---
+
 ### JIRA
 
-<https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9>
+[https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9](https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9)
 
 ### GITHUB
 
-<https://github.com/Rjbern/CIS-350-Project>
+[https://github.com/Rjbern/CIS-350-Project](https://github.com/Rjbern/CIS-350-Project)
 
 ---
 
@@ -89,6 +89,68 @@ The three major interactions come from creating the recipes, linking those recip
 </p>
 
 ## 4. User Guide / Implementation
+
+### 4.1 Home
+
+When the user launches the application they will be greated by the Planner page. From here they will be able to naviagte to the Recipes page and Groceries page. The user will have many tools within the planner page.
+
+<p align="center">
+  <img src="readmeFigures/PlannerPage.png" width="300" title="useCase">
+  <br>
+  Figure 7: Page the users will see when they open the application.
+
+### 4.2 Planner Page
+
+**4.2.1 Calander**
+
+The user can use the calendar to change from the current week to any week they want to view or plan in. Changing the calendar changes the dates for the planned meals and grocery lists.
+
+<div style="display: flex; justify-content: center;">
+  <div style="margin: 10px; text-align: center;">
+    <img src="readmeFigures/PlannerPage.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
+    <br>
+    Figure 7: Showcasing the change in week in the planner dates.
+  </div>
+  <div style="margin: 10px; text-align: center;">
+    <img src="readmeFigures/CalanderChange.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
+    <br>
+    Figure 8: Calendar Change
+  </div>
+</div>
+
+**4.2.2 Add Meal**
+
+If the user has a recipe, they created they can click the 'Add Meal' button and will be prompted to enter the recipe number they want to add. They then can click cancel or add in the prompt. Once added they can drop down the meal to see all the information about the recipe.
+
+<div style="display: flex; justify-content: center;">
+  <div style="margin: 10px; text-align: center;">
+    <img src="readmeFigures/AddMealPrompt.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
+    <br>
+    Figure 9: Prompted to add recipe number when user clicks add meal. 
+  </div>
+  <div style="margin: 10px; text-align: center;">
+    <img src="readmeFigures/AddedMeal.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
+    <br>
+    Figure 10: Added meal to day that the user wanted. 
+  </div>
+</div>
+
+**4.2.3 Delete Meal**
+
+If the user no longer wants a meal that they have planned for a specific day, they then have the option to use the 'Delete Meal' button next to the meal to do so. They will be prompted with a screen to verify they want to delete the planned meal with the option to cancel in case of a miss click. 
+
+<div style="display: flex; justify-content: center;">
+  <div style="margin: 10px; text-align: center;">
+    <img src="readmeFigures/DeleteMealPrompt.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
+    <br>
+    Figure 11: Prompted to delete planned meal. 
+  </div>
+  <div style="margin: 10px; text-align: center;">
+    <img src="readmeFigures/DeletedMeal.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
+    <br>
+    Figure 12: Meal deleted. 
+  </div>
+</div>
 
 ## 5. Future Scope
 
