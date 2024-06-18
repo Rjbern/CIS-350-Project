@@ -101,56 +101,115 @@ When the user launches the application they will be greated by the Planner page.
 
 ### 4.2 Planner Page
 
+On this page, the user will be able to add meals, delete meals, fetch groceries, and change weeks in the calendar.
+
 **4.2.1 Calander**
 
 The user can use the calendar to change from the current week to any week they want to view or plan in. Changing the calendar changes the dates for the planned meals and grocery lists.
 
-<div style="display: flex; justify-content: center;">
-  <div style="margin: 10px; text-align: center;">
-    <img src="readmeFigures/PlannerPage.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
-    <br>
-    Figure 7: Showcasing the change in week in the planner dates.
-  </div>
-  <div style="margin: 10px; text-align: center;">
-    <img src="readmeFigures/CalanderChange.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
-    <br>
-    Figure 8: Calendar Change
-  </div>
-</div>
+<p align="center">
+  <img src="readmeFigures/PlannerPage.png" width="300" title="createRecipe">
+  <br>
+  Figure 7: Showcasing the change in week in the planner dates.
+</p>
+
+<p align="center">
+  <img src="readmeFigures/CalanderChange.png" width="300" title="linkRecipe">
+  <br>
+  Figure 8: Calendar Change
+</p>
 
 **4.2.2 Add Meal**
 
-If the user has a recipe, they created they can click the 'Add Meal' button and will be prompted to enter the recipe number they want to add. They then can click cancel or add in the prompt. Once added they can drop down the meal to see all the information about the recipe.
+If the user has a recipe, they created they can click the 'Add Meal' button and will be prompted to enter the recipe number they want to add. They then can click cancel or add in the prompt. Once added they can drop down the meal to see all the information about the recipe. When they have added the meal, the application stores their planned meals in the database on the user's device.
 
-<div style="display: flex; justify-content: center;">
-  <div style="margin: 10px; text-align: center;">
-    <img src="readmeFigures/AddMealPrompt.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
-    <br>
-    Figure 9: Prompted to add recipe number when user clicks add meal. 
-  </div>
-  <div style="margin: 10px; text-align: center;">
-    <img src="readmeFigures/AddedMeal.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
-    <br>
-    Figure 10: Added meal to day that the user wanted. 
-  </div>
-</div>
+<p align="center">
+  <img src="readmeFigures/AddMealPrompt.png" width="300" title="createRecipe">
+  <br>
+  Figure 9: Prompted to add recipe number when user clicks add meal.
+</p>
+
+<p align="center">
+  <img src="readmeFigures/AddedMeal.png" width="300" title="linkRecipe">
+  <br>
+  Figure 10: Added meal to day that the user wanted. 
+</p>
 
 **4.2.3 Delete Meal**
 
-If the user no longer wants a meal that they have planned for a specific day, they then have the option to use the 'Delete Meal' button next to the meal to do so. They will be prompted with a screen to verify they want to delete the planned meal with the option to cancel in case of a miss click. 
+If the user no longer wants a meal that they have planned for a specific day, they then have the option to use the 'Delete Meal' button next to the meal to do so. They will be prompted with a screen to verify they want to delete the planned meal with the option to cancel in case of a miss click. When the user deletes the meal, it is deleted from the appropriate spot in the database.
 
-<div style="display: flex; justify-content: center;">
-  <div style="margin: 10px; text-align: center;">
-    <img src="readmeFigures/DeleteMealPrompt.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
-    <br>
-    Figure 11: Prompted to delete planned meal. 
-  </div>
-  <div style="margin: 10px; text-align: center;">
-    <img src="readmeFigures/DeletedMeal.png" style="max-width: 100%; height: auto;" width="300" title="useCase">
-    <br>
-    Figure 12: Meal deleted. 
-  </div>
-</div>
+<p align="center">
+  <img src="readmeFigures/DeleteMealPrompt.png" width="300" title="createRecipe">
+  <br>
+  Figure 11: Prompted to delete planned meal. 
+</p>
+
+<p align="center">
+  <img src="readmeFigures/DeletedMeal.png" width="300" title="linkRecipe">
+  <br>
+  Figure 12: Meal deleted. 
+</p>
+
+### 4.3 Recipies Page
+
+On this page, the user will be able to see all the meals that they have created. They will also be able to add and delete their created meals.
+
+**4.3.1 Add Recipe**
+
+In the bottom left corner, there is a floating button that allows the user to create a recipe. When clicked they are prompted with a screen to enter the name, prep time, cook time, ingredients, and instructions. They can back out of the prompt if needed. When added the information is now viewable on the recipe page via a drop down page that has all the recipe information. This recipe is then stored in the appropriate spot in the database.
+
+<p align="center">
+  <img src="readmeFigures/AddRecipePrompt.png" width="300" title="createRecipe">
+  <br>
+  Figure 13: Prompted to create recipe. 
+</p>
+
+<p align="center">
+  <img src="readmeFigures/AddedRecipe.png" width="300" title="linkRecipe">
+  <br>
+  Figure 14: Added recipe with drop down. 
+</p>
+
+**Delete Recipe**
+
+After the user has created recipes, they then have the option to delete them as well. If a recipe is wanted to be deleted this is possible via the bottom of the dropdown of all recipes. Once deleted, the recipe will be removed from the recipe page and the database.
+
+<p align="center">
+  <img src="readmeFigures/RecipeDropdown.png" width="300" title="createRecipe">
+  <br>
+  Figure 15: Delete button in dropdown. 
+</p>
+<p align="center">
+  <img src="readmeFigures/DeletedRecipe.png" width="300" title="linkRecipe">
+  <br>
+  Figure 16: Recipe deleted. 
+</p>
+
+### 4.4 Groceries Page
+
+This page allows the users to pull all of inregredients from planned meals the selcted week to make a grcoery list.
+
+**4.4.1 Collecting Grocery list**
+
+Users can plan groceries for any given week they choose. The recipe page is refreshed based on what week is selected in the calendar in the planner page. This concept also relates to the grocery page. There is a button below the calendar on the Planner page called 'Get Current Weeks Groceries'. This collects all ingredients from meals planned for that week in the database and adds them to your grocery list page.
+
+
+<p align="center">
+  <img src="readmeFigures/EmptyGroceryPage.png" width="300" title="createRecipe">
+  <br>
+  Figure 17: Empty grocery page. 
+</p>
+<p align="center">
+  <img src="readmeFigures/GatherGroceries.png" width="300" title="linkRecipe">
+  <br>
+  Figure 18: Get current weeks groceries. 
+</p>
+<p align="center">
+  <img src="readmeFigures/GatheredGroceries.png" width="300" title="createRecipe">
+  <br>
+  Figure 19: Gathered groceries. 
+</p>
 
 ## 5. Future Scope
 
