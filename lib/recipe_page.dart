@@ -125,8 +125,15 @@ class RecipePageState extends State<RecipePage> {
                   // Handle sumbitted data
                   try {
                     String newName = nameController.text;
-                    int newPrepTime = int.parse(preptimeController.text);
-                    int newCookTime = int.parse(cooktimeController.text);
+                    int newPrepTime;
+                    int newCookTime;
+                    try {
+                      newPrepTime = int.parse(preptimeController.text);
+                      newCookTime = int.parse(cooktimeController.text);
+                    } catch (ex) {
+                      throw Exception("Prep or Cooktime not Integer Values");
+                    }
+                    
                     List<String> newIngredients =
                         ingredientsController.text.split(',');
                     String newIntructions = intructionsController.text;
