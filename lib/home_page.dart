@@ -19,6 +19,7 @@ class HomePageState extends State<HomePage> {
   DateTime _focusedDay = DateTime.now();
   late Box<Recipe> recipeBox, mealBox;
 
+  // States days of the week.
   final List<String> daysOfWeek = [
     'Sunday',
     'Monday',
@@ -29,19 +30,19 @@ class HomePageState extends State<HomePage> {
     'Saturday',
   ];
 
-  // add listerner to hive box.
-  // When chnages setState() is called allowing for refresh right away
-  // Not only when recipe page is recalled
   @override
   void initState() {
     super.initState();
     mealBox = Hive.box<Recipe>(plannedMealStorageName);
     recipeBox = Hive.box<Recipe>(recipeStorageName);
+    // Add listerner to hive box.
     mealBox.listenable().addListener(() {
+      // When chnages setState() is called allowing for refresh right away.
       setState(() {});
     });
   }
 
+  // Error mesaage method.
   void errorMessage(BuildContext context, Object exceptionThrown) {
     showDialog(
       context: context,
@@ -80,7 +81,7 @@ class HomePageState extends State<HomePage> {
             TextButton(
               onPressed: () async {
                 try {
-                  // 1 Indexed in view so minus 1 from their number to get 0 indexed
+                  // 1 Indexed in view so minus 1 from their number to get 0 indexed.
                   int index = int.parse(foodController.text) - 1;
                   Recipe newRecipe = recipeBox.getAt(index)!;
                   Recipe newInstance = Recipe(
@@ -90,9 +91,9 @@ class HomePageState extends State<HomePage> {
                       newRecipe.ingredients,
                       newRecipe.instructions);
 
-                  // makes sure it add the ingredients to th elist correctly so they can
                   setState(() {});
 
+                  // Puts planned meal into the box with correlating to date and recipe. 
                   await mealBox.put(_getDateOfWeekday(weekDay), newInstance);
                   Navigator.of(context).pop();
                 } catch (ex) {
@@ -113,7 +114,7 @@ class HomePageState extends State<HomePage> {
     _addFoodItem(weekDay);
   }
 
-  // deletes food from the day selected if it is there
+  // Deletes food from the day selected if it is there.
   void _deleteFoodItem(int weekDay) {
     showDialog(
       context: context,
@@ -132,7 +133,7 @@ class HomePageState extends State<HomePage> {
               onPressed: () async {
                 String dateKey = _getDateOfWeekday(weekDay);
                 Recipe? recipeToDelete = mealBox.get(dateKey);
-                // Checks if recipe to delete if so then deletes ingredient from plannedIngredientsname List
+                // Checks if there is recipe to delete if so then deletes ingredient from plannedIngredientsname List.
                 if (recipeToDelete != null) {
                   setState(() {});
                   await mealBox.delete(dateKey);
@@ -155,7 +156,6 @@ class HomePageState extends State<HomePage> {
 
   String _getDateOfWeekday(int weekDay) {
     /// Finds the date of the weekday based on the week range of [_focusedDay]
-    ///
     /// [weekDay] is an index 0-6 resembling day of the week starting at sun (0) and going to sat (6)
     var targetDate = _focusedDay
         .subtract(Duration(days: _focusedDay.weekday))
@@ -168,6 +168,7 @@ class HomePageState extends State<HomePage> {
     return _getDateOfWeekday(weekDay);
   }
 
+  // Clears the list, then gathers all ingredients from planned meals based on the week selected.
   void _gatherGroceryList() {
     plannedIngredients.clear();
     for (var i = 0; i <= 6; i++) {
@@ -221,6 +222,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        /// Calander Setup.
         TableCalendar(
           firstDay: DateTime.utc(2024, 1, 1),
           lastDay: DateTime.utc(2030, 12, 31),

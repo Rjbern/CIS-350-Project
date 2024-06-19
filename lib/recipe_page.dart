@@ -13,9 +13,8 @@ class RecipePage extends StatefulWidget {
 class RecipePageState extends State<RecipePage> {
   late Box<Recipe> recipeBox;
 
-  // add listerner to hive box.
-  // When chnages setState() is called allowing for refresh right away
-  // Not only when recipe page is recalled
+  // Add listerner to hive box.
+  // When chnages setState() is called allowing for refresh right away.
   @override
   void initState() {
     super.initState();
@@ -54,6 +53,7 @@ class RecipePageState extends State<RecipePage> {
     TextEditingController ingredientsController = TextEditingController();
     TextEditingController intructionsController = TextEditingController();
 
+    // Checks if all parameters are entered or they are entered incorrectly. 
     bool allParamsEntered(
         String name, int prep, cook, List<String> ing, String ins) {
       if ((name.isEmpty) || (ins.isEmpty)) {
@@ -67,6 +67,7 @@ class RecipePageState extends State<RecipePage> {
       return true;
     }
 
+    // Error message method.
     void errorMessage(BuildContext context, Object exceptionThrown) {
       showDialog(
         context: context,
@@ -130,10 +131,10 @@ class RecipePageState extends State<RecipePage> {
                         ingredientsController.text.split(',');
                     String newIntructions = intructionsController.text;
 
-                    // Add to recipe list
+                    // Add to recipe list.
                     if (allParamsEntered(newName, newPrepTime, newCookTime,
                         newIngredients, newIntructions)) {
-                      //Need to put recipe into box
+                      // Need to put recipe into box.
                       final box = Hive.box<Recipe>(recipeStorageName);
                       box.add(Recipe(newName, newPrepTime, newCookTime,
                           newIngredients, newIntructions));
