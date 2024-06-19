@@ -27,6 +27,7 @@ class GroceriesPageState extends State<GroceriesPage> {
             if (plannedIngredients.isEmpty)
               const Text('No ingredients planned',
                   style: TextStyle(fontSize: 12)),
+            /// Looks through ingrediants in all planned meals.
             for (var i in plannedIngredients)
               Text('- $i', style: const TextStyle(fontSize: 12)),
           ],

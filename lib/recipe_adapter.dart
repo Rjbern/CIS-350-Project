@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 part 'recipe_adapter.g.dart';
 
+// Sets recipe as a hive type in the Hive box as well as its feilds. 
 @HiveType(typeId: 0)
 class Recipe extends HiveObject {
   @HiveField(0)
