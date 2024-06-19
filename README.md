@@ -194,7 +194,6 @@ This page allows the users to pull all of inregredients from planned meals the s
 
 Users can plan groceries for any given week they choose. The recipe page is refreshed based on what week is selected in the calendar in the planner page. This concept also relates to the grocery page. There is a button below the calendar on the Planner page called 'Get Current Weeks Groceries'. This collects all ingredients from meals planned for that week in the database and adds them to your grocery list page.
 
-
 <p align="center">
   <img src="readmeFigures/EmptyGroceryPage.png" width="300" title="createRecipe">
   <br>
@@ -213,6 +212,11 @@ Users can plan groceries for any given week they choose. The recipe page is refr
 
 ## 5. Future Scope
 
+For this project, there is some future scope. Now the software does not have a login/register page. This needs to be created and connected to a server/database so users can access their **Dinner Planner App** data on more than just one device. Recipes could be changed so that they can be edited instead of deleted and remade. UI could be smoothed out, so it is more pleasing to the eye. Add the option to specifically plan meals for breakfast, lunch, or dinner on all days for added organization.
+
 ## 6. Conclusion
+
+Overall, we believe that the **Dinner Planner App** brings all the features that are necessary for people to plan their meals. It allows users to be more organized with their lives, making it less stressful to figure out what they are going to eat next. We plan on improving this application to even better the user experience.
+ 
 
 ## 7. Walkthrough
