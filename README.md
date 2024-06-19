@@ -97,13 +97,13 @@ Communication diagrams are very similart othat of the sequence diagram, but inst
 </p>
 
 <p align="center">
-  <img src="./readmeFigures/linkingCommunication.png" width="400" title="linkRecipe">
+  <img src="./readmeFigures/LinkingCommunication.png" width="400" title="linkRecipe">
   <br>
   Figure 8: Communication Diagram for Linking Recipes
 </p>
 
 <p align="center">
-  <img src="readmeFigures/GroceriesCommunication.png" width="400" title="grocerySequence">
+  <img src="readmeFigures/groceriesCommunication.png" width="400" title="grocerySequence">
   <br>
   Figure 9: Communication Diagram for Getting a Grocery List
 </p>
