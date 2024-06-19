@@ -108,6 +108,8 @@ Communication diagrams are very similart othat of the sequence diagram, but inst
   Figure 9: Communication Diagram for Getting a Grocery List
 </p>
 
+As shown in these diagrams, the numbers represent the order in which the actions take place and the arrows point in which direction the information is flowing.  The sequence and communication diagrams show the same information just can be interperted easier by different people.
+
 ## 4. User Guide / Implementation
 
 ### 4.1 Home
@@ -117,7 +119,7 @@ When the user launches the application they will be greated by the planner page.
 <p align="center">
   <img src="readmeFigures/PlannerPage.png" width="300" title="useCase">
   <br>
-  Figure 7: Home Page / Planner Page
+  Figure 10: Home Page / Planner Page
 
 ### 4.2 Planner Page
 
@@ -130,7 +132,7 @@ The user can use the calendar to change from the current week to any week they w
 <p align="center">
   <img src="readmeFigures/SwitchingWeek.png" width="500" title="switchingWeek">
   <br>
-  Figure 8: Showcasing planner page and switching weeks
+  Figure 11: Showcasing planner page and switching weeks
 </p>
 
 The purple box highlights the change in week when the user decides to move forward or backwards in time.  It can also be seen that the dates next to the weekdays also change accordingly.
@@ -142,7 +144,7 @@ If the user has a recipe, they created they can click the 'Add Meal' button and 
 <p align="center">
   <img src="readmeFigures/AddingMeal.png" width="500" title="addMeal">
   <br>
-  Figure 9: Prompt to Add Meal to the Meal Being Added
+  Figure 12: Prompt to Add Meal to the Meal Being Added
 </p>
 
 Once added they add the meal, the meal appears under the that given day.  This meal has a drop down to see all the information about the recipe. When they have added the meal, the application stores their planned meals in the database on the user's device to be there when the open the app in the future.
@@ -154,7 +156,7 @@ If the user no longer wants a meal that they have planned for a specific day, th
 <p align="center">
   <img src="readmeFigures/DeleteMealPrompt.png" width="300" title="deleteMeal">
   <br>
-  Figure 10: Prompted to delete planned meal.
+  Figure 13: Prompted to delete planned meal.
 </p>
 
 ### 4.3 Recipies Page
@@ -168,7 +170,7 @@ In the bottom right corner, there is a floating button that allows the user to c
 <p align="center">
   <img src="readmeFigures/CreatingRecipe.png" width="500" title="createRecipe">
   <br>
-  Figure 11: Creation Process of Recipes.
+  Figure 14: Creation Process of Recipes.
 </p>
 
 **Delete Recipe**
@@ -178,7 +180,7 @@ After the user has created recipes, they then have the option to delete them as 
 <p align="center">
   <img src="readmeFigures/DeletingRecipe.png" width="500" title="deleteRecipe">
   <br>
-  Figure 12: Delete button in dropdown.
+  Figure 15: Delete button in dropdown.
 </p>
 
 ### 4.4 Groceries Page
@@ -192,7 +194,7 @@ Users can plan groceries for any given week they choose. Initially the grocery p
 <p align="center">
   <img src="readmeFigures/EmptyGroceryPage.png" width="300" title="emptyGroceries">
   <br>
-  Figure 13: Empty grocery page.
+  Figure 16: Empty grocery page.
 </p>
 
 When the user wants to get a grocery list for their week of meals, they first have to navigate to the planner page.  There is a button below the calendar on the Planner page called 'Get Current Weeks Groceries'. This collects all ingredients from meals planned for that week in the database and adds them to your grocery list page.  This allows for the user to get any weeks groceries so they can plan their week in advance.  Figure 14 shows this process.
@@ -200,7 +202,7 @@ When the user wants to get a grocery list for their week of meals, they first ha
 <p align="center">
   <img src="readmeFigures/GatheringGroceries.png" width="500" title="gatherGroceries">
   <br>
-  Figure 14: Get Current Week's Groceries.
+  Figure 17: Get Current Week's Groceries.
 </p>
 
 ## 5. Future Scope
