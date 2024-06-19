@@ -2,9 +2,9 @@
 
 ## Dinner Planner App
 
-## Made by
-
 ---
+
+## Made by
 
 ### Nathan Barber
 
@@ -14,15 +14,9 @@
 
 ## Important Links
 
----
+### [Github](https://github.com/Rjbern/CIS-350-Project)
 
-### JIRA
-
-[https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9](https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9)
-
-### GITHUB
-
-[https://github.com/Rjbern/CIS-350-Project](https://github.com/Rjbern/CIS-350-Project)
+### [JIRA](https://mail-team-otacijvt.atlassian.net/jira/software/projects/C3P/boards/2?atlOrigin=eyJpIjoiN2IzZmNkY2E5NmYzNDdhMTg2YWI1NzQ3MWYxYjg2ZjciLCJwIjoiaiJ9)
 
 ---
 
@@ -48,11 +42,15 @@ This architecture design allows a singular user to keep all their data stored on
 
 ### 3.1 Class Diagram
 
+The class diagram as shown in Figure 2 describes how the code was designed to be layed out.
+
 <p align="center">
   <img src="./readmeFigures/classDiagram.png" width="700" title="classDiagram">
   <br>
   Figure 2: Class Diagram
 </p>
+
+There are no control classes in this diagram which was a big topic talked about.  The boundary classes have direct interfcaing with the user to perform their tasks, but since each of these tasks were more of a one and done case it seemed unnecissary to make classes for just a collection of one or two functions for nearly 8 classes.
 
 ### 3.2 Use Case Diagram
 
@@ -79,13 +77,35 @@ The three major interactions come from creating the recipes, linking those recip
 <p align="center">
   <img src="./readmeFigures/linkRecipeSequence.png" width="300" title="linkRecipe">
   <br>
-  Figure 5: Sequence Diagram for Creating Recipes
+  Figure 5: Sequence Diagram for Linking Recipes
 </p>
 
 <p align="center">
   <img src="readmeFigures/getGrocerySequence.png" width="300" title="grocerySequence">
   <br>
-  Figure 6: Sequence Diagram for Creating Recipes
+  Figure 6: Sequence Diagram for Getting a Grocery List
+</p>
+
+### 3.4 Communication Diagram
+
+Communication diagrams are very similart othat of the sequence diagram, but instead of the design being vertical, they form more horizontally.  Figures 7 - 9 show the communication diagrams for the respective sequence diagram.
+
+<p align="center">
+  <img src="./readmeFigures/CreatingCommunication.png" width="400" title="createRecipe">
+  <br>
+  Figure 7: Communication Diagram for Creating Recipes
+</p>
+
+<p align="center">
+  <img src="./readmeFigures/linkingCommunication.png" width="400" title="linkRecipe">
+  <br>
+  Figure 8: Communication Diagram for Linking Recipes
+</p>
+
+<p align="center">
+  <img src="readmeFigures/GroceriesCommunication.png" width="400" title="grocerySequence">
+  <br>
+  Figure 9: Communication Diagram for Getting a Grocery List
 </p>
 
 ## 4. User Guide / Implementation
@@ -158,7 +178,7 @@ After the user has created recipes, they then have the option to delete them as 
 <p align="center">
   <img src="readmeFigures/DeletingRecipe.png" width="500" title="deleteRecipe">
   <br>
-  Figure 12: Delete button in dropdown. 
+  Figure 12: Delete button in dropdown.
 </p>
 
 ### 4.4 Groceries Page
