@@ -223,3 +223,5 @@ For this project, there is some things to do in the future. Now the software doe
 Overall, we believe that the **Dinner Planner App** brings all the features that are necessary for people to plan their meals. It allows users to be more organized with their lives, making it less stressful to figure out what they are going to eat next. We plan on improving this application to make the user's experience even more helpful.
 
 ## 7. Walkthrough
+
+[Video Demo](https://www.youtube.com/watch?v=_JgKwGeqKdg)
